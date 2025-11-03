@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.Objects;
+
 /**
  * Clase base abstracta para todas las entidades del sistema.
  * Implementa el patrón de soft delete mediante el campo 'eliminado'.
@@ -82,5 +84,22 @@ public abstract class Base {
      */
     public void setEliminado(boolean eliminado) {
         this.eliminado = eliminado;
+    }
+
+    /**
+     * Dos entidades se consideran iguales si son del mismo tipo y tienen el mismo ID.
+     * Si el ID aún no fue asignado (id == 0), se delega la comparación a la subclase.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Base other = (Base) obj;
+        return id == other.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

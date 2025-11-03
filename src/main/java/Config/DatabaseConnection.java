@@ -22,13 +22,13 @@ import java.sql.SQLException;
  */
 public final class DatabaseConnection {
     /** URL de conexión JDBC. Configurable via -Ddb.url */
-    private static final String URL = System.getProperty("db.url", "jdbc:mysql://localhost:3306/dbtpi3");
+    private static final String URL = System.getProperty("db.url", "jdbc:mysql://localhost:3306/clinicadb");
 
     /** Usuario de la base de datos. Configurable via -Ddb.user */
     private static final String USER = System.getProperty("db.user", "root");
 
     /** Contraseña del usuario. Configurable via -Ddb.password */
-    private static final String PASSWORD = System.getProperty("db.password", "");
+    private static final String PASSWORD = System.getProperty("db.password", "mysql");
 
     /**
      * Bloque de inicialización estática.
